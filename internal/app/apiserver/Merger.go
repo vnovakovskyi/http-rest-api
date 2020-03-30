@@ -11,6 +11,14 @@ func Merge(article []ArticleItem, marketing []MarketingItem, target *[]Answer) {
 	marketingIndex := 0
 
 	for {
+		if low >= len(article) {
+			break
+		}
+
+		if high > len(article) {
+			high = len(article)
+		}
+
 		var marketingItem = MarketingItem{}
 
 		if marketingIndex < len(marketing) {
@@ -20,14 +28,6 @@ func Merge(article []ArticleItem, marketing []MarketingItem, target *[]Answer) {
 			marketingItem = MarketingItem{
 				Type: "Ad",
 			}
-		}
-
-		if low >= len(article) {
-			break
-		}
-
-		if high > len(article) {
-			high = len(article)
 		}
 
 		*target = append(*target, Answer{

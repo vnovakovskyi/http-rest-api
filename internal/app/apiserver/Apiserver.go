@@ -27,7 +27,6 @@ func (s *APIServer) Start() error {
 	}
 
 	s.configureRouter()
-
 	s.logger.Info("Starting api server")
 
 	return http.ListenAndServe(s.config.BindAddr, s.router)
@@ -39,7 +38,6 @@ func (s *APIServer) configureLogger() error {
 	if err != nil {
 		return err
 	}
-
 	s.logger.SetLevel(level)
 
 	return nil
